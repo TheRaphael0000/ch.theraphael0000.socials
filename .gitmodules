@@ -1,0 +1,3 @@
+[submodule "snac2"]
+	path = snac2
+	url = https://codeberg.org/grunfink/snac2.git

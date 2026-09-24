@@ -1,0 +1,14 @@
+services:
+    snac:
+        build: snac2
+        image: snac
+        container_name: snac
+        restart: unless-stopped
+        security_opt:
+            - no-new-privileges:true
+        volumes:
+            - ./data:/data/
+            - ./entrypoint.sh:/usr/local/bin/entrypoint.sh
+        ports:
+            - "8001:8001"
+        entrypoint: ["/bin/sh", "/usr/local/bin/entrypoint.sh"]
