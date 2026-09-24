@@ -1,6 +1,6 @@
 services:
     snac:
-        build: snac2
+        build: ./snac2
         image: snac
         container_name: snac
         restart: unless-stopped
@@ -9,6 +9,12 @@ services:
         volumes:
             - ./data:/data/
             - ./entrypoint.sh:/usr/local/bin/entrypoint.sh
-        ports:
-            - "8001:8001"
         entrypoint: ["/bin/sh", "/usr/local/bin/entrypoint.sh"]
+        networks:
+          - nginx
+
+networks:
+  nginx:
+    external: true
+    name: nginx
+
